@@ -31,21 +31,19 @@
 
 // let account = new Account(1, "Mosh", 0);
 // account.deposit(100);
-
 // account.balance = 150;
 // console.log(account.balance);
 
-// // INDEX SIGNATURES:
+// INDEX SIGNATURES:
 // class SeatAssignment {
 // 	// A1, A2
-// 	[seatNumber: string]: string;
+// 	[seatNumber: string]: string | number;
 // }
 
 // let seats = new SeatAssignment();
-
 // seats.A1 = "Mosh";
 // seats.A2 = "John";
-
+// seats.A3 = 1
 // console.log(seats);
 
 // STATIC MEMBERS: (static props belongs to class and not an object)
@@ -69,7 +67,6 @@
 // ride1.start();
 // let ride2 = new Ride();
 // ride2.start();
-
 // console.log(Ride.activeRides);
 
 // INHERITANCE, METHOD OVER-RIDING, POLYMORPHISM
