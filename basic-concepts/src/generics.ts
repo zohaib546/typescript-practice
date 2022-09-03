@@ -157,30 +157,30 @@
 
 // TYPE MAPPING
 // sometime we need a type based on another type
-interface Product {
-  name: string;
-  price: number;
-}
+// interface Product {
+//   name: string;
+//   price: number;
+// }
 
 // instead of hardcoding 'Product' properties
 // we use =>
 // Index signature
 // keyof
-type ReadOnly<T> = {
-  readonly [Key in keyof T]: T[Key];
-};
+// type ReadOnly<T> = {
+//   readonly [Key in keyof T]: T[Key];
+// };
 
-type Optional<T> = {
-  [Key in keyof T]?: T[Key];
-};
+// type Optional<T> = {
+//   [Key in keyof T]?: T[Key];
+// };
 
-type Nullable<T> = {
-  [Key in keyof T]: T[Key] | null;
-};
+// type Nullable<T> = {
+//   [Key in keyof T]: T[Key] | null;
+// };
 
-let product: ReadOnly<Product> = {
-  name: "a",
-  price: 10,
-};
+// let product: ReadOnly<Product> = {
+//   name: "a",
+//   price: 10,
+// };
 
 // product.name = "b"; // you cant modify readonly properties
