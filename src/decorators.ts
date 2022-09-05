@@ -1,10 +1,14 @@
 // Decorators are attributes that we apply to our classes
 // and their members with this we can change how they behaves
 // decorator runs once even with zero or multiple class instances
+// decorator is just a function that is called by javascript runtime
 
 // CLASS DECORATORS:
 // function Component(constructor: Function) {
 // 	console.log("Component decorator called");
+// 	// every instance of 'ProfileComponent' will inherit these methods:
+// 	// we can solve the same problem with class inheritance
+// 	// this is the decorator way of the solution
 // 	constructor.prototype.uniqueId = Date.now;
 // 	constructor.prototype.insertInDOM = () => {
 // 		console.log("Inserting the component in the DOM");
@@ -34,7 +38,7 @@
 // @Component({ selector: "#my-profile" })
 // class ProfileComponent {}
 
-// DECORATOR COMPOSITION
+// DECORATOR COMPOSITION:
 // multiple decorator calls in reverse order
 // type ComponentOptions = {
 // 	selector: string;
@@ -59,23 +63,38 @@
 // @Pipe
 // class ProfileComponent {}
 
-// METHOD DECORATOR
+// METHOD DECORATOR:
+// function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+// 	const original = descriptor.value as Function;
+// 	descriptor.value = function (...args: any) {
+// 		console.log("Before");
+// 		original.call(this, ...args);
+// 		console.log("After");
+// 	};
+// }
 
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-	const original = descriptor.value as Function;
-	descriptor.value = function (...args: any) {
-		console.log("Before");
-		original.call(this, ...args);
-		console.log("After");
+// class Person {
+// 	@Log
+// 	say(message: string) {
+// 		console.log("Person says " + message);
+// 	}
+// }
+
+// let person = new Person();
+// person.say("Hello Message");
+
+// ACCESSOR DECORATOR:
+function Capitalize(target: any, methodName: string, descriptor: PropertyDescriptor) {
+	const original = descriptor.get;
+	descriptor.get = function () {
+		original?.call(this);
 	};
 }
-
 class Person {
-	@Log
-	say(message: string) {
-		console.log("Person says " + message);
+	constructor(public firstname: string, public lastname: string) {}
+
+	@Capitalize
+	get fullName() {
+		return `${this.firstname} ${this.lastname}`;
 	}
 }
-
-let person = new Person();
-person.say("Hello Message");

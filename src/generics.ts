@@ -15,9 +15,9 @@
 // let strings = wrapInArray("1");
 
 // class ArrayUtils {
-//   static wrapInArray<T>(value: T) {
-//     return [value];
-//   }
+// 	static wrapInArray<T>(value: T) {
+// 		return [value];
+// 	}
 // }
 
 // let numbers = ArrayUtils.wrapInArray(1);
@@ -47,27 +47,27 @@
 // let userResult = fetch<User>("url");
 // userResult.data?.username;
 // let productResult = fetch<Product>("url");
-// productResult.data?.title
+// productResult.data?.title;
 
 // GENERIC CONSTRAINTS
 // function echo<T>(value: T): T {
-//   return value;
+// 	return value;
 // }
 
 // function echo1<T extends number | string>(value: T): T {
-//   return value;
+// 	return value;
 // }
 
 // function echo2<T extends { name: string }>(value: T): T {
-//   return value;
+// 	return value;
 // }
 
 // interface Person {
-//   fullname: string;
+// 	fullname: string;
 // }
 
 // function echo3<T extends Person>(value: T): T {
-//   return value;
+// 	return value;
 // }
 
 // echo("5");

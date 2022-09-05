@@ -1,3 +1,6 @@
+// CLASS: is a programming paradigm. A class is a blueprint for creating an object it acts like a factory
+// OBJECTS: are the building blocks of our application
+
 // class Account {
 // 	//   readonly id: number;
 // 	//   owner: string;
@@ -15,10 +18,12 @@
 // 		this._balance += amount;
 // 	}
 
+// 	// getter
 // 	get balance(): number {
 // 		return this._balance;
 // 	}
 
+// 	// setter
 // 	set balance(value: number) {
 // 		if (value < 0) throw new Error("Invalid value");
 // 		this._balance = value;
@@ -31,22 +36,31 @@
 
 // let account = new Account(1, "Mosh", 0);
 // account.deposit(100);
-// account.balance = 150;
-// console.log(account.balance);
+// account.balance = 150; // setter
+// console.log(account.balance); // getter
 
 // INDEX SIGNATURES:
+// let someperson = {}
+// someperson.name = 'a'
+// in javascript its completely valid
+// but typescript is very strict about shape of objects
+// we can use index-signatures for adding properties dynamically to an object
 // class SeatAssignment {
-// 	// A1, A2
+// 	// A1: string
+// 	// A2: string
 // 	[seatNumber: string]: string | number;
 // }
 
 // let seats = new SeatAssignment();
 // seats.A1 = "Mosh";
 // seats.A2 = "John";
-// seats.A3 = 1
+// seats.A3 = 1;
 // console.log(seats);
 
 // STATIC MEMBERS: (static props belongs to class and not an object)
+// can only be accessed using class name
+// static methods or properties become a part of class
+// and have only a single instance in memory
 // class Ride {
 // 	private static _activeRides: number = 0;
 
@@ -110,6 +124,10 @@
 // 	}
 // }
 
+// // POLYMORPHISM:
+// // under printNames method there ia array of different objects
+// // which changes shape on each iteration
+
 // printNames([
 // 	new Student(1, "John", "Smith"),
 // 	new Teacher("Mosh", "Hamedani"),
@@ -122,12 +140,14 @@
 // 	}
 // }
 
-// ABSTRACT CLASS
+// ABSTRACT CLASS:
 // (abstract class dont get instantiated another class should have to extends it)
+// an abstract class referred as uncooked meal so another classs have to extend it
+// in the below example instance of shape class doesnt make sense in this example
 // abstract class Shape {
 // 	constructor(public color: string) {}
 
-// 	// abstract methods should only exist in abstract class
+// 	// abstract methods should only exist inside abstract classes
 // 	// these methods have no implementation
 // 	abstract render(): void;
 // }
@@ -145,6 +165,8 @@
 // let shape = new Shape("red");
 
 // INTERFACES ( used to define the shape of objects )
+
+// Abstract class approach to implemting shape for other classes
 // abstract class Calendar {
 // 	constructor(public name: string) {}
 
@@ -152,6 +174,8 @@
 // 	abstract removeEvent(): void;
 // }
 
+// interace implementation
+// in interface we should only define the signature of props not implementation
 // interface Calendar {
 // 	name: string;
 // 	addEvent(): void;
@@ -164,7 +188,6 @@
 
 // class GoogleCalendar implements Calendar {
 // 	constructor(public name: string) {}
-
 // 	addEvent(): void {
 // 		throw new Error("Method not implemented.");
 // 	}
